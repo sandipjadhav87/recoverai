@@ -3,3 +3,12 @@ __pycache__/
 .env
 .venv/
 venv/
+
+# Generated results
+agent_results.csv
+ai_results.csv
+audit_log.csv
+batch_risk_results.csv
+recoverai_final_results.csv
+recovery_results.csv
+recovery_simulation.csv
