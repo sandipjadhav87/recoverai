@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from razorpay_integration import create_test_payment_link
 
 
 # ============================================================
@@ -842,7 +843,66 @@ else:
         f"{explanation_source}"
     )
 
+    # ========================================================
+# RAZORPAY TEST PAYMENT LINK
+# ========================================================
 
+if transaction["recommended_action"] == "PAYMENT_LINK":
+
+    st.subheader(
+        "Razorpay Recovery Payment Link"
+    )
+
+    st.write(
+        "RecoverAI selected PAYMENT_LINK as the "
+        "recommended recovery action."
+    )
+
+    if st.button(
+        "Create Razorpay Test Payment Link",
+        key=f"razorpay_{transaction['transaction_id']}"
+    ):
+
+        try:
+
+            payment_link = create_test_payment_link(
+
+                amount=transaction["amount_at_risk"],
+
+                transaction_id=transaction[
+                    "transaction_id"
+                ],
+
+                customer_id=transaction[
+                    "customer_id"
+                ]
+
+            )
+
+            st.success(
+                "Razorpay Test Payment Link created successfully."
+            )
+
+            st.write(
+                f"**Payment Link ID:** "
+                f"{payment_link['id']}"
+            )
+
+            st.write(
+                f"**Status:** "
+                f"{payment_link['status']}"
+            )
+
+            st.link_button(
+                "Open Razorpay Test Payment Link",
+                payment_link["short_url"]
+            )
+
+        except Exception as e:
+
+            st.error(
+                f"Unable to create Razorpay payment link: {e}"
+            )
     # ========================================================
     # CUSTOMER MESSAGE
     # ========================================================
