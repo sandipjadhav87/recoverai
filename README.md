@@ -4,41 +4,47 @@
 
 RecoverAI is a prototype AI-powered revenue recovery system designed to help merchants recover revenue lost due to failed payment transactions.
 
-The system analyzes failed payments, identifies the likely reason for failure, recommends an appropriate recovery action, applies bounded recovery rules, and records the outcome for measuring recovered revenue.
+The system analyzes failed payments, evaluates recovery risk and priority, recommends a bounded recovery action, explains the decision, generates a customer recovery message, simulates the recovery outcome, and records an audit trail.
+
+> **Note:** This prototype uses synthetic transaction data and simulated recovery outcomes.
 
 ---
 
 ## Problem
 
-Failed payments can result in significant revenue leakage for merchants.
+Failed payments create revenue leakage for merchants.
 
-Common causes include:
+Common failure reasons include:
 
-- Temporary bank or network failures
+- Temporary bank or network errors
 - Insufficient funds
 - Authentication failures
 - Expired cards
-- Repeated unsuccessful payment attempts
+- Repeated unsuccessful attempts
 
-RecoverAI aims to convert these failed transactions into actionable recovery opportunities.
+Simply retrying every failed payment can lead to repeated failures and poor customer experience.
 
 ---
 
-## Proposed Solution
+## Solution
 
-The system follows a closed-loop recovery workflow:
+RecoverAI uses a closed-loop recovery workflow:
 
 ```text
 Failed Payment
       ↓
-Revenue-at-Risk Detection
+Revenue at Risk
       ↓
 Failure Analysis
       ↓
+Risk + Priority Scoring
+      ↓
 Recovery Decision
       ↓
-Recovery Action
+Customer Message
       ↓
-Recovery Result
+Recovery Simulation
       ↓
-Revenue Recovered + Audit Record
+Audit Trail
+      ↓
+Operations Dashboard
