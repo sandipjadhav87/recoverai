@@ -568,3 +568,25 @@ Razorpay functionality is demonstrated using **Test Mode**.
 ### **Detect. Score. Decide. Recover. Audit.**
 
 **Turning failed payments into recoverable revenue.**
+
+---
+
+## 📸 Product Demo
+
+### 🏠 Operations Dashboard
+
+The RecoverAI dashboard provides an executive view of revenue exposure, recovered revenue, recovery rate, successful recoveries, escalations, and failed recoveries.
+
+![RecoverAI Dashboard](screenshots/Dashboard.png)
+
+### 🔍 Recovery Queue
+
+The recovery queue allows operators to search and prioritize failed transactions based on risk, priority, and recommended recovery action.
+
+![RecoverAI Recovery Queue](screenshots/Recovery%20Queue.png)
+
+### 🧠 Transaction Investigation
+
+RecoverAI explains why a particular recovery action was selected, including recovery score, risk, priority, failure reason, and recommended intervention.
+
+![RecoverAI Transaction Investigation](screenshots/Transaction%20Investigation.png)
